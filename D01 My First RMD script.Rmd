@@ -1,6 +1,6 @@
 ---
 title: "Activity #1: My first RMD File"
-author: "My name"
+author: "Prof Geraci"
 date: "Date goes here"
 output: 
   word_document:

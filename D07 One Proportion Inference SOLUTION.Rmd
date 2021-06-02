@@ -1,0 +1,246 @@
+---
+title: "D07 One-Proportion Inference"
+author: ""
+date: ""
+output: 
+  word_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+### Objective  
+
+The purpose of this exploration is to learn about how to do inference using simulation techniques. 
+
+### Spiral:
+  
+Which of the following is a one-sided test and which is a two-sided test?  
+
+-	A researcher is interested in learning whether data provide evidence that the percentage of males in a heterosexual couple who says 'I love you' first is different from 50%.
+  
+-	A researcher playing Minesweeper is interested whether her results provide evidence that her long-run proportion of winning is higher than 50%. 
+
+>Delete this text and type your answer here (leave the ">" sign)
+  
+
+### Inference - Overview
+  
+Refer to Section 7.1 in the R Companion. What are the 7 general steps to performing an inference procedure using simulation techniques?
+
+1. Establish the population of interest & make a conjecture about the population.  
+2. Identify a suitable sample to test the conjecture
+3. Define the parameters of interest and state your null and alternative hypothesis.
+4. Gather some data from the sample to test the conjecture.  Compute the test statistic (estimates the parameter)
+5. Simulate the situation, **assuming the null hypothesis is really true.**
+6. Compute the p-value, the proportion of the simulated trials (1000) in which a value is observed as extreme or more so than the observed test statistic.  
+7.  If your p-vlaue is less than your significance (typically 0.05), reject the null hypothesis - you have found evidence to support the alternative hypothesis. 
+If not, we fail to reject the null hypotehsis and do not have evidenced to support the alternative. 
+
+### Example - Sampling Students 
+
+(See D07 Inference Overview)
+
+Let's say we are interested in determining *whether the majority of all college students* live on campus.  Identify the following:
+
+- population of interest
+
+> All college students
+
+- response variable 
+
+> Whether they live on campus or not (Yes/No)
+
+- quantitative or categorical
+
+> Categorical
+
+- parameter of interest
+
+> the proportion of all college students who live on campus
+
+- Suitable sample 
+
+> 1000 College students at area colleges (RIT, MCC, Brockport, UofR, SJFC, Naz)
+
+- biased sample
+
+> 1000 students at MCC (typically a commuter campus)
+
+
+
+## Three S Strategy
+  
+### Statistic
+  
+  What is the *statistic* in this study
+
+> The statistic is the observed number of students out of 1000 who live on campus (let's say it 686)
+
+### Simulation
+  
+  Describe how we could simulate the above College Student Study using a fair coin. *Why are we using a fair coin?*
+  
+> If we assume that the fair coin represents exactly 50/50 Heads, then Heads could represent "Living on campus".  We are trying to determine if the majority (more than 50%) of all college students live on campus.  
+
+> To simulate this we could flip a coin 1000 times (to represent 1000 college students), then DO THAT 1000 times and observe how frequently we get 686 heads or more out of 1000. 
+
+
+### Seven-step inference procedure
+  
+  Identify the following:
+  
+1.  What is the conjecture about the population of interest here?
+
+> Our conjecture is that the majority of college students live on campus
+
+2.  Did we use a suitable sample?  Describe. 
+
+>  Yes, as long as we include a representative sample (e.g. from a variety of different types of colleges), this would be representative of all college students.
+
+3. State the null and alternative hypothesis
+
+> Let pi = proportion of all college students who live on campus.
+> H0:  pi = 0.50
+> Ha:  pi > 0.50  (one sided test)
+
+4. Identify the observed test statistic from the sample. 
+
+> p-hat = 686/1000 = .686
+
+5.  Identify the p-value. 
+
+### Strength of evidence
+
+```{r}
+
+pi <- 0.50   # probability of success for each toss
+n <- 1000   # Number of times we toss the penny (sample size)
+
+trials <- 1000   # Number of trials (number of samples)
+
+observed <- 686  # Observed number of heads 
+
+phat = observed / n   # p-hat - the observed proportion of heads
+
+data.sim <- do(trials) * rflip(n, prob = pi )
+
+histogram(~prop, data = data.sim, 
+          v = phat, 
+          xlab = "Proportion", 
+          main = "Null hypothesis distribution",
+          groups = prop >= phat) 
+
+if(observed > pi * n) {
+  pvalue <- sum(data.sim$prop >= phat) / trials
+} else {
+  pvalue <- sum(data.sim$prop <= phat) / trials
+}
+
+paste("One-sided p-value is", pvalue)
+paste("Two-sided p-value is", 2 * pvalue)
+```
+
+
+6.  State your decision and conclusion.  (Remember to state this in terms of the alternative hypothesis and do not use terms like prove or accept.)
+
+> Since our p-value is so small (about 0), we reject the null hypothesis, as we have found evidence to belive that more than 50% of all college students live on campus.  
+
+## Example - Supersize Drinks
+
+In June of 2012, New York City Mayor Michael Bloomberg proposed banning the sale of any regular soda or other sugary drinks in containers larger than 16 oz. Diet drinks and those with more than 70% juice or more than 50% milk would be exempt. Some people saw this as an effort to fight the obesity problem and others saw it as an example of government intrusion.
+
+A poll of 1,093 randomly selected New York City voters conducted by Quinnipiac University taken shortly after the mayor's announcement found that 46% of them supported the ban. Based on this sample proportion, we would like to decide whether less than half of all New York City voters support the ban.
+
+1.  What is the conjecture about the population of interest here?
+
+>  The population of interest is all New York City voters
+
+2.  Did we use a suitable sample?  Describe. 
+
+>  Yes, as it is stated that the subjects were selected randomly from the population of interest
+
+3. State the null and alternative hypothesis
+
+> Let pi = the proportion of all New York City voters who support the ban
+> H0:  pi = 0.50
+> Ha:  pi < 0.50 (one-tailed test - to the left)
+
+4. Identify the observed test statistic from the sample. 
+
+> p-hat = 0.46 (46%)
+
+5. Compute and Identify the p-value. (You'll need to insert a chunk here)
+
+```{r}
+pi <- 0.50   # probability of success for each toss
+n <- 1093   # Number of times we toss the penny (sample size)
+trials <- 1000   # Number of trials (number of samples)
+
+observed <- 0.46 * 1093  # Observed number of heads 
+
+phat = observed / n   # p-hat - the observed proportion of heads
+
+data.sim <- do(trials) * rflip(n, prob = pi )
+
+histogram(~prop, data = data.sim, 
+          v = phat, 
+       
+          xlab = "Proportion", 
+          main = "Null hypothesis distribution",
+          groups = prop >= phat) 
+
+if(observed > pi * n) {
+  pvalue <- sum(data.sim$prop >= phat) / trials
+} else {
+  pvalue <- sum(data.sim$prop <= phat) / trials
+}
+
+paste("One-sided p-value is", pvalue)
+paste("Two-sided p-value is", 2 * pvalue)
+```
+
+6.  State your decision and conclusion.  (Remember to state this in terms of the alternative hypothesis and do not use terms like prove or accept.)
+
+> Since the p-value is so small (0.003), we reject the null hypothesis and conclude that less than 50% of all New York City voters support the ban. 
+
+
+## Example - Internet connection at home  
+
+According to a study completed in 2006 by Pew Internet, 42% of all Americans had a broadband Internet connection at home. This same statistics student wanted to see if this percentage is different for students at his university. A random sample of 950 students indicates that 437 of the students have broadband internet at home.
+
+1.  What is the conjecture about the population of interest here?
+
+>
+
+2.  Did we use a suitable sample?  Describe. 
+
+>
+
+3. State the null and alternative hypothesis
+
+>
+
+4. Identify the observed test statistic from the sample. 
+
+>
+
+5. Compute and Identify the p-value. (You'll need to insert a chunk here)
+
+>
+
+6.  State your decision and conclusion.  (Remember to state this in terms of the alternative hypothesis and do not use terms like prove or accept.)
+
+>

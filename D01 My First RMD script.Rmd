@@ -1,0 +1,36 @@
+---
+title: "Activity #1: My first RMD File"
+author: "My name"
+date: "Date goes here"
+output: 
+  word_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+## My first RMD SCript
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+This is my first RMD file. Isn't this fun?
+
+```{r}
+54.3 + 67.1 + sqrt(67)
+
+myname <- "Anne"
+location <- "Rochester"
+
+
+```
+

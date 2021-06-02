@@ -1,0 +1,56 @@
+---
+title: "Sample Project Activity"
+author: ""
+date: ""
+output: 
+  word_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+## Phase 1. Project Proposal
+
+### 1.0 Introduction
+
+<Delete this text and insert your introduction paragraph here.  See assignment for details. >
+
+
+```{r}
+
+# Step 1.  Read in the data
+#df <- read.csv("CountyDataFA21.csv")
+#str(df)
+
+# # Step 2. Select the variables of interest & Rename as needed
+#df2 <- select(df,state, Pct.Rep.2020, v021, v043)  %>%
+#  rename(HighSchoolGradRate = v021, 
+#         ViolentCrime = v043)
+#str(df2)
+# 
+# 
+# # Step 3.  Filter the data as desired
+#df3 <- filter(df2, state == "NY")
+# 
+# # Step 4. Create computed variables as needed
+#df4 <- mutate(df3, EducHighLow = 
+#              ifelse(HighSchoolGradRate > mean(HighSchoolGradRate, na.rm = T), "High", "Low"),
+#              RepDem20 = ifelse(Pct.Rep.2020 > 50, "Rep", "Dem"))
+#str(df4)
+# 
+# # Step 5.  Do something interesting with the data
+# str(df5)
+
+```

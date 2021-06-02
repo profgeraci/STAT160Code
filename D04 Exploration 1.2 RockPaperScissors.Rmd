@@ -1,0 +1,109 @@
+---
+title: "Exploration 1.2: Rock Paper Scissors"
+author: ""
+date: ""
+output: 
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+### Objective
+
+The purpose of this exploration is to introduce the formal language of inference.  This includes the terms null/alternative hypothesis and p-value. 
+
+### Spiral:
+
+How did we use Heads and Tails in our last class to simulate whether Harley (the dog) could understand verbal cues from a human?   
+
+>Delete this text and type your answer here (leave the ">" sign)
+  
+### Rock Paper Scissors
+
+We want to find out if people playing Rock-Paper-Scissors tend to win their games with each "weapon" with equal probability.   For example, do people tend to pick Rock more than Scissors?  Paper more than Rock?  To research this, let's say that we asked 50 people to play three games each of the game, and record which weapon won the game.  
+    
+Results:  Let's imagine that out of the 150 games, we found that Rock won 40 times, Paper won 41 times and Scissors won 69 times.   Wow! 
+  
+We suspect that for some reason that Scissors has some sort of advantage and tends to win more frequently than the other tools.   
+  
+How can we test this? 
+
+1.	Based on the description provided, state the research question. 
+  
+>
+
+2.  *Design a study and collect data. * 
+
+a.  Identify the observational units of study?
+
+>
+
+b.  Describe the variable in the study.  What are the possible outcomes?  Is this variable quantitative or categorical?
+
+>
+
+c.  Describe the parameter of interest (in words).   
+
+>
+
+d.  What are the two possibilities that could happen here relative to the winning weapon?
+
+>
+>
+
+e.  Express the above possibilities using the parameter of interest in the form of a NULL and ALTERNATIVE hypothesis. 
+
+>
+>
+
+*3.  Explore the data*
+
+a.  The researchers found that  ____.   Calculate the value of the relevant statistic (let’s call this p-hat).  
+
+>Delete this text and insert an R chunk here.  
+
+
+b.  Now express the null and alternative hypothesis statements using $\pi$, the long-run proportion of a subject choosing tap water as their favorite. 
+  
+>H0:  $\pi$ =  
+>H0:  $\pi$ > 
+
+
+*4.  Draw inferences. *
+
+a.	 Is the sample proportion (p-hat) less than the probability specified in the null hypothesis? 
+  
+>
+
+b.	Is it possible that this proportion could turn out to be this small even if the null hypothesis was true (e.g. even if     )? 
+
+>
+
+>Delete this text and insert an R chunk here.  Simulate the above scenario to compute the p-value. 
+
+
+
+  
+e.	What is the approximate value of the p-value?   Is this small enough to provide evidence against the null hypothesis?  If so, how strong is this evidence?  Explain. 
+
+>
+
+
+*5.  Formulate conclusion. *
+
+a.	Do you consider the observed sample result to be statistically significant?  
+
+>

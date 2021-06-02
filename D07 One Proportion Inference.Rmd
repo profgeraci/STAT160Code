@@ -1,0 +1,182 @@
+---
+title: "One-Proportion Inference"
+author: ""
+date: ""
+output: 
+  word_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+### Objective  
+
+The purpose of this exploration is to learn about how to do inference using simulation techniques. 
+
+### Spiral:
+  
+Which of the following is a one-sided test and which is a two-sided test?  
+
+•	A researcher is interested in learning whether data provide evidence that the percentage of males in a heterosexual couple who says “I love you” first is different from 50%.
+  
+•	A researcher playing Minesweeper is interested whether her results provide evidence that her long-run proportion of winning is higher than 50%. 
+
+>Delete this text and type your answer here (leave the ">" sign)
+  
+### Example 1 - Sampling Students 
+
+Let's say we are interested in determining *whether the majority of all college students* live on campus.  Identify the following:
+
+- population of interest
+
+>
+
+- conjecture about the population
+
+>
+
+- response variable 
+
+>
+
+- quantitative or categorical
+
+>
+
+- parameter of interest
+
+>
+
+- Suitable sample 
+
+>
+
+- biased sample
+
+> 
+
+
+
+## Three S Strategy
+  
+### Statistic
+  
+  What is the *statistic* in this study
+
+> 
+
+### Simulation
+  
+  Describe how we could simulate the above College Student Study using a fair coin. *Why are we using a fair coin?*
+  
+> 
+
+
+
+### Seven-step inference procedure
+  
+  Identify the following:
+  
+1.  What is the conjecture about the population of interest here?
+
+>
+
+2.  Did we use a suitable sample?  Describe. 
+
+>
+
+3. State the null and alternative hypothesis
+
+>
+
+
+### Strength of evidence
+
+<Insert a new R chunk here and paste your one-prportion Inference routine here>
+
+
+4. Identify the observed test statistic from the sample. 
+
+>
+
+5.  Identify the p-value. 
+
+>
+
+6.  State your decision and conclusion.  (Remember to state this in terms of the alternative hypothesis and do not use terms like prove or accept.)
+
+>
+
+## Example 2 - Supersize Drinks
+
+In June of 2012, New York City Mayor Michael Bloomberg proposed banning the sale of any regular soda or other sugary drinks in containers larger than 16 oz. Diet drinks and those with more than 70% juice or more than 50% milk would be exempt. Some people saw this as an effort to fight the obesity problem and others saw it as an example of government intrusion.
+
+A poll of 1,093 randomly selected New York City voters conducted by Quinnipiac University taken shortly after the mayor's announcement found that 46% of them supported the ban. Based on this sample proportion, we would like to decide whether less than half of all New York City voters support the ban.
+
+1.  What is the conjecture about the population of interest here?
+
+>
+
+2.  Did we use a suitable sample?  Describe. 
+
+>
+
+3. State the null and alternative hypothesis
+
+>
+
+
+(You'll need to insert a chunk here for your One-Proportion Inference Simulation)
+
+4. Identify the observed test statistic from the sample. 
+
+>
+
+5. Compute and Identify the p-value. 
+
+>
+
+6.  State your decision and conclusion.  (Remember to state this in terms of the alternative hypothesis and do not use terms like prove or accept.)
+
+>
+
+
+## Example 3 - Internet connection at home  
+
+According to a study completed in 2006 by Pew Internet, 42% of all Americans had a broadband Internet connection at home. This same statistics student wanted to see if this percentage is different for students at his university. A random sample of 950 students indicates that 437 of the students have broadband internet at home.
+
+1.  What is the conjecture about the population of interest here?
+
+>
+
+2.  Did we use a suitable sample?  Describe. 
+
+>
+
+3. State the null and alternative hypothesis
+
+>
+
+4. Identify the observed test statistic from the sample. 
+
+>
+
+5. Compute and Identify the p-value. 
+
+>
+
+6.  State your decision and conclusion.  (Remember to state this in terms of the alternative hypothesis and do not use terms like prove or accept.)
+
+>

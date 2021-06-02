@@ -1,0 +1,58 @@
+---
+title: "D03 Dogs understand Human Cues"
+author: ""
+date: ""
+output: 
+  word_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+Simulate the Harley picking cups at random.  We observed that he picked the correct cup 9 out of 10 times.  Was he just guessing, or had he learned to understand humans?
+
+## One-Proportion Inference
+```{r}
+pi <- 0.50   # probability of success for each toss
+n <- 10   # Number of times we toss the penny (sample size)
+trials <- 1000   # Number of trials (number of samples)
+
+observed <- 9  # Observed number of heads 
+
+phat = observed / n   # p-hat - the observed proportion of heads
+
+data.sim <- do(trials) * rflip(n, prob = pi )
+
+histogram(~prop, data = data.sim, 
+          v = phat, 
+          width = 0.025,
+          xlab = "Proportion", 
+          main = "Null hypothesis distribution",
+          groups = prop >= phat) 
+
+if(observed > pi * n) {
+  pvalue <- sum(data.sim$prop >= phat) / trials
+} else {
+  pvalue <- sum(data.sim$prop <= phat) / trials
+}
+
+paste("One-sided p-value is", pvalue)
+paste("Two-sided p-value is", 2 * pvalue)
+
+```
+
+Our p-value from this experiment is 0.01.  This means that if Harley was guessing, there is a 0.01 (1%) chance that he would get either 9 or 10 cups correct. 
+
+Was he guessing? 

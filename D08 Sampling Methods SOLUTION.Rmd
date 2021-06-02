@@ -1,0 +1,138 @@
+---
+title: "D08 Biased and Unbiased Sampling"
+author: ""
+date: ""
+output: 
+  word_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+## Objective
+
+The objective of this exploration is to understand the difference between a biased sample and an unbiased sample. 
+
+
+## Scenario #1: Gettysburg Address
+
+List the words you selected from the Gettysburg Address: 
+
+> consecrate, by, dedicate, met, nation, sense, great, score, which, who, unfinished
+  
+Based on your sample of the 10 words above, what would you estimate is the length of an average word in the Gettysburg Address?  (Don't do any calculations, just make a guess) 
+
+> Answers will vary
+
+Do you think that your sample is representative of all words in the Gettysburg Address? 
+
+> Answers will vary
+
+## Gettysburg - Your Sample
+
+Using the words in your sample, let's compute some numerical estimates. 
+
+
+```{r}
+
+my.sample <- c(10,2,9,3,6,5,5,5,5,3,10)
+favstats(~my.sample)
+
+containsE <- c(1,0,1,1,0,1,1,1,0,0,1)
+tally(~containsE, format = "percent")
+
+
+```
+
+> The typical word in my sample is 5.7 letters long. 63% of the words contain the letter E.
+
+## Gettysburg - Random Sample
+
+Now let's take a **random** sample of the words in the Gettysburg Address and compute some numerical estimates.
+
+```{r}
+
+GA.words <- read.csv("gettysburgWords.csv", header=T, sep = " ")
+
+# Let's select a random sample of 10 words
+set.seed(10)
+random.sample <- sample_n(GA.words, 10)
+str(random.sample)
+
+favstats(~Letter, data=random.sample)
+tally (~containsE, data=random.sample, format = "percent" )
+
+```
+
+> The typical word in the random sample is 5.8 letters. 50% of them contain the letter E.   
+
+Identify each of the following terms for the above scenario : 
+
+What is the population of interest?   
+> All the words in the Gettysburg Address
+
+What is the sample? 
+> 10 randomly selected words
+
+What are the two parameters of interest? 
+> Length of a word in the GA and whether the word contains the letter E
+
+```{r}
+favstats(~Letter, data=GA.words)
+tally (~containsE, data=GA.words, format = "percent" )
+```
+
+
+What are the two statistics? 
+> Length of a word in my sample (5.8 letters) and whether the word contains the letter E (50%)
+
+Explain how the sample you chose (your 10 words) may have been biased. 
+> My sample may have been biased because I chose lots of words that were longer (like consecrated or dedicated) - they are easier to see. 
+
+
+## Scenario 2:  English Language
+
+OK, now let's think about the more general case.  How long do you think a typical word is in the **English Language**? 
+
+> Answers will vary 
+
+
+Now we have a different population of **words in the English Language**.  Let's use the Gettysburg Address as a sample of size 268.  
+
+```{r}
+
+favstats(~Letter, data=GA.words)
+tally (~containsE, data=GA.words, format = "percent" )
+
+```
+
+> We estimate the length of a typical word **in the English Language** at 4.29 letters (with an average deviation of 2.12 letters).  We estimate that 53% of the words have the letter E. 
+
+What is the population of interest (be sure to use the word "all")?   
+>  All words in the English language
+
+What is the sample? 
+> The 268 words in the Gettysburg Address
+
+What are the two parameters of interest? 
+> Length of a word in the English Language and whether the word contains the letter E
+
+What are the two statistics? 
+> Length of a word in the GA and whether the word contains the letter E
+  
+Explain at least one way in which this sample might be biased. 
+
+> Answers will vary
+

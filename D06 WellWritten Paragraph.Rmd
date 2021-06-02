@@ -1,0 +1,102 @@
+---
+title: "Well-written Paragraph"
+author: ""
+date: ""
+output: 
+  word_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+## Objective
+
+The objective of this exploration is to learn how to write a well-formed paragraph describing a given distribution.  A well-formed paragraph will describe the following, using the proper units:
+
+.	center - what is considered the center of the distribution (mean or median)
+.	spread - how much variation is there in the distribution (standard deviation or range)
+.	shape - what shape does the distribution take on (symmetric, left-skewed, right-skewed or other)
+.	unusual observations - are there any unusual observations or outliers in the distribution?
+
+
+## Part 1: Gettysburg - Words
+
+```{r}
+
+#words <- read.csv("gettysburgWords.csv", header=T, sep = " ")
+
+
+```
+
+1.	Describe the contents of the words dataframe. 
+  
+>
+
+2.	Add a str() command to the above R chunk to display the structure of the words dataframe
+
+a.  What type of data is the variable Letter?  (numeric/categorical)
+  
+>
+
+b.  What type of data is the variable containsE?
+  
+>
+
+### Summarizing numeric data
+  
+How can we summarize the Letter variable? 
+  
+```{r}
+
+```
+
+Well-formed Paragraph:
+- describe the data and the observational unit
+- center of the data 
+- spread 
+- shape of the data
+- outliers
+
+> Delete this text and write your paragraph here
+
+
+
+## Part 2:  mtcars data  
+
+(a) Display the structure of the _mtcars_ data
+
+```{r}
+
+```
+
+(b) Compute a numerical summary of the mpg (miles-per-gallon) variable.  Hint:  use favstats
+```{r}
+
+```
+
+(c) Compose a histogram of the mpg (miles-per-gallon) variable. 
+
+```{r}
+
+```
+
+(d)  Now write a Well-written paragraph describing the mpg variable. Be sure to specify the observations and units in the data as well as describe the center, spread, shape, and unusual observations in the distribution. 
+    
+>
+
+## What did you learn?
+
+What are the required components of a Well-written paragraph
+

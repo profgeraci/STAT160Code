@@ -1,0 +1,120 @@
+---
+title: "Biased and Unbiased Sampling"
+author: ""
+date: ""
+output: 
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+## Objective
+
+The objective of this exploration is to understand the difference between a biased sample and an unbiased sample. 
+
+
+## Scenario #1: Gettysburg Address
+
+List the words you selected from the Gettysburg Address: 
+
+>Delete this text and type the words, separated by commas
+  
+Based on your sample of the 10 words above, what would you estimate is the length of an average word in the Gettysburg Address?  (Don't do any calculations, just make a guess) 
+
+> Type your answer here
+
+Do you think that your sample is representative of all words in the Gettysburg Address? 
+
+> Type your answer here
+
+## Gettysburg - Your Sample
+
+Using the words in your sample, let's compute some numerical estimates. 
+
+
+```{r}
+
+```
+
+> Describe average length of word and proportion of words containing letter E. 
+
+## Gettysburg - Random Sample
+
+Now let's take a **random** sample of the words in the Gettysburg Address and compute some numerical estimates.
+
+```{r}
+
+words <- read.csv("gettysburgWords(1).csv", header=T, sep = " ")
+
+str(words)
+
+
+
+```
+
+> Describe average length of word and proportion of words containing letter E. 
+
+
+Identify each of the following terms for the above scenario : 
+
+What is the population of interest?   
+> Type your answer here
+
+What is the sample? 
+> Type your answer here
+
+What are the two parameters of interest? 
+> Type your answer here 
+
+What are the two statistics? 
+> Type your answer here
+
+Explain how the sample you chose (your 10 words) may have been biased. 
+> Type your answer here
+
+
+## Scenario 2:  English Language
+
+OK, now let's think about the more general case.  How long do you think a typical word is in the **English Language**? 
+
+> Type your answer here  
+
+
+Now we have a different population of **words in the English Language".  Let's use the Gettysburg Address as a sample of size 268.  
+
+```{r}
+
+```
+
+>
+
+
+What is the population of interest (be sure to use the word "all")?   
+> Type your answer here
+
+What is the sample? 
+> Type your answer here
+
+What are the two parameters of interest? 
+> Type your answer here 
+
+What are the two statistics? 
+> Type your answer here
+  
+Explain at least one way in which this sample might be biased. 
+
+> Type your answer here
+

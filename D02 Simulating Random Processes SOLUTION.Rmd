@@ -1,0 +1,77 @@
+---
+title: "Activity #2: Simulating Random Processes"
+author: ""
+date: ""
+output: 
+  word_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+```
+
+## Simulating "Smelling Parkinsons" 
+
+```{r}
+results <- do(10000) * rflip(12)
+
+tally(~heads, data=results)
+
+
+```
+```{r}
+histogram(~heads, width = 1, data=results)
+
+```
+  
+  How likely would it be to get 11 or 12 heads when I flip a coin 12 times? 
+  That's like Joy is guessing.  
+
+```{r}
+(pvalue <- (11+6)/10000)
+
+```
+The p-value is 0.017.  This is the probability that we would observe 11 or 12 heads if we flip a coin 12 times and repeat that many many times.  
+  
+  Since this probability is so small, we can conclude that while it is possible to see 11 or 12 correct answers if Joy is guessing, this is not likely. 
+  
+  
+## Lady Tasting Tea
+
+Simulate a lady tasting tea.  Assume that she is guessing (e.g. flipping a coin).  We will give her 8 cups of tea and record a H (if she gets it right) and a T (if she gets it wrong). 
+
+(1)   flip a coin 8 times and do that lots of times. 
+(2) tally how many head we got (distribution)
+(3) Draw a histogram to show the distribution
+(4) Compute the p-value, which will be the probability that we would observe 8 correct results (heads) if the lady is guessing. 
+
+
+```{r}
+results <- do(10000) * rflip(8)
+
+tally(~heads, data=results)
+
+
+```
+
+  
+```{r}
+histogram(~heads, width = 1, data=results)
+```
+  
+  
+```{r}
+(pvalue <- (35)/10000)
+```
+
